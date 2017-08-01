@@ -2,6 +2,13 @@
 @ dom Toolset
 */
 
+function get (el) {
+    return document.querySelector(el) || {}
+}
+
+function getAll (el) {
+    return document.querySelectorAll(el)
+}
 
 function hasClass (el, className) {
     if (typeOf el === 'string') {
@@ -47,4 +54,19 @@ function removeClass (el, className) {
         }
       }
     });
+}
+
+function toggleClass (el, className) {
+    if (typeOf el === 'string') {
+        el = document.querySelector(el)
+    }
+
+    let flag = hasClass(el, className)
+
+    if (flag) {
+        removeClass(el, className)
+    } else {
+        addClass(el, className)
+    }
+    return flag
 }
